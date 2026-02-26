@@ -1,0 +1,5 @@
+[
+  { "id": "introduction", "file": "slides/01-introduction.svg" },
+  { "id": "method", "file": "slides/02-method.svg" },
+  { "id": "results", "file": "slides/03-results.svg" }
+]

@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#viewer {
+  width: 100%;
+  height: 90vh;
+}
+
+object {
+  width: 100%;
+  height: 100%;
+}
