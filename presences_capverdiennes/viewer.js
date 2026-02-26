@@ -40,7 +40,7 @@ function createNavigation(index) {
   if (index > 0) {
     const prev = document.createElement("a");
     prev.href = "#" + slides[index - 1].id;
-    prev.innerText = "← Previous";
+    prev.innerText = "← Prev";
     nav.appendChild(prev);
   }
 
