@@ -157,12 +157,16 @@ body {
     grid-template-rows: auto 1fr auto;
   }
 
+  #viewer {
+    touch-action: manipulation;
+  }
+
   #header-nav {
-    min-height: 4.5rem;
+    min-height: 5.5rem;
   }
 
   #nav {
-    min-height: 4.25rem;
+    min-height: 5.5rem;
   }
 
   .header-controls {
@@ -171,8 +175,31 @@ body {
   }
 
   #nav a,
-  #header-nav a,
+  #header-nav a {
+    min-height: 3.5rem;
+    padding: 0.75rem 1.25rem;
+    font-size: 1.25rem;
+  }
+
+  .lang-switcher a {
+    padding: 0.65rem 1.15rem;
+    font-size: 1.1rem;
+  }
+
   .zoom-btn {
-    min-height: 2.5rem;
+    min-width: 3.5rem;
+    min-height: 3.5rem;
+    font-size: 1.4rem;
+    padding: 0 0.65rem;
+  }
+
+  .zoom-reset {
+    min-width: 5rem;
+    font-size: 1.1rem;
+  }
+
+  .zoom-level {
+    min-width: 4rem;
+    font-size: 1.1rem;
   }
 }
