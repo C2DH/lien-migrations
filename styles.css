@@ -1,59 +1,108 @@
+:root {
+  --primary-color: #1e3446;
+  --secondary-color: #d6c9c0;
+}
+
 body {
   margin: 0;
-  background: hsl(0, 0%, 7%);
+  background: var(--primary-color);
   height: 100vh;
   font-family: "Arial", sans-serif;
+  color: var(--secondary-color);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  overflow: hidden;
 }
+
+#viewer-wrapper {
+  min-height: 0;
+  padding: 0.5rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
 #viewer {
-  height: 90vh;
-}
-object {
+  flex: 1;
+  min-height: 0;
   width: 100%;
-  height: 100%;
+  overflow-y: auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y pinch-zoom;
+  overscroll-behavior: contain;
+  border-top: 1px solid
+    color-mix(in srgb, var(--secondary-color) 30%, transparent);
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--secondary-color) 30%, transparent);
 }
+
+.slide-image {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: auto;
+  max-width: none;
+}
+
 #header-nav {
-  height: 4vh;
+  min-height: 3.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
+  padding: 0.5rem 0.75rem;
 }
+
 #nav {
-  height: 6vh;
+  position: sticky;
+  bottom: 0;
+  background-color: var(--primary-color);
+  min-height: 3.5rem;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 1rem;
+  padding: 0.5rem 0.75rem calc(0.5rem + env(safe-area-inset-bottom));
 }
 
 #nav a,
 #header-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-size: 1rem;
+  line-height: 1;
+  margin: 0;
+  padding: 0.5rem 0.85rem;
+  text-transform: uppercase !important;
+  border: 1px solid var(--secondary-color);
+  border-radius: 0.35rem;
+}
+
+.header-controls {
+  width: 100%;
+  max-width: 1100px;
   display: flex;
   align-items: center;
-  flex-shrink: 1;
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.2em;
-  margin: 0 2;
-  padding: 10px 20px;
-  text-transform: uppercase !important;
-  border: 1px solid #fff;
+  justify-content: space-between;
+  gap: 0.75rem;
 }
 
 .lang-switcher {
   display: flex;
   align-items: center;
-  gap: 10px;
-  color: #fff;
-  font-size: 1em;
+  gap: 0.5rem;
+  color: var(--secondary-color);
+  font-size: 1rem;
 }
 
 .lang-switcher a {
-  padding: 5px 15px;
-  font-size: 0.9em;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.875rem;
   opacity: 0.6;
-  transition: opacity 0.3s;
+  transition: opacity 0.2s ease-in-out;
 }
 
 .lang-switcher a:hover {
@@ -62,22 +111,68 @@ object {
 
 .lang-switcher a.active {
   opacity: 1;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--primary-color);
+}
+
+.zoom-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.zoom-btn {
+  appearance: none;
+  border: 1px solid var(--secondary-color);
+  border-radius: 0.35rem;
+  background: transparent;
+  color: var(--secondary-color);
+  min-width: 2.25rem;
+  height: 2.25rem;
+  padding: 0 0.45rem;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.zoom-reset {
+  min-width: 3.4rem;
+  font-size: 0.8rem;
+}
+
+.zoom-level {
+  min-width: 3.1rem;
+  text-align: center;
+  font-size: 0.875rem;
 }
 
 .nav-buttons {
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 700px) {
+  body {
+    grid-template-rows: auto 1fr auto;
+  }
+
   #header-nav {
-    height: 8vh;
+    min-height: 4.5rem;
   }
+
   #nav {
-    height: 10vh;
+    min-height: 4.25rem;
   }
-  #viewer {
-    height: 82vh;
+
+  .header-controls {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #nav a,
+  #header-nav a,
+  .zoom-btn {
+    min-height: 2.5rem;
   }
 }
