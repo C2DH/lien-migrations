@@ -31,10 +31,10 @@ body {
   -webkit-overflow-scrolling: touch;
   touch-action: pan-x pan-y;
   overscroll-behavior: contain;
-  border-top: 1px solid
-    color-mix(in srgb, var(--secondary-color) 30%, transparent);
+  border-top: 2px solid
+    color-mix(in srgb, var(--secondary-color) 50%, transparent);
   border-bottom: 1px solid
-    color-mix(in srgb, var(--secondary-color) 30%, transparent);
+    color-mix(in srgb, var(--secondary-color) 50%, transparent);
 }
 
 .slide-image {

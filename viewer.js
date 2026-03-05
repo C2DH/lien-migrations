@@ -4,7 +4,7 @@ let currentSlideIndex = 0;
 let zoomLevel = 0.75;
 
 const MIN_ZOOM = 0.25;
-const MAX_ZOOM = 2;
+const MAX_ZOOM = 3;
 const ZOOM_STEP = 0.25;
 
 const params = new URLSearchParams(window.location.search);
@@ -194,16 +194,24 @@ function createNavigation(index) {
   navButtons.className = "nav-buttons";
 
   if (index > 0) {
+    const homeBtn = document.createElement("a");
+    homeBtn.href = `#${currentLang}/${slides[0].id}`;
+    homeBtn.innerText = "⌂ Home";
+    homeBtn.setAttribute("aria-label", "Go to home page");
+    navButtons.appendChild(homeBtn);
+  }
+
+  if (index > 0) {
     const prev = document.createElement("a");
     prev.href = `#${currentLang}/${slides[index - 1].id}`;
-    prev.innerText = "← Prev";
+    prev.innerText = "< Prev";
     navButtons.appendChild(prev);
   }
 
   if (index < slides.length - 1) {
     const next = document.createElement("a");
     next.href = `#${currentLang}/${slides[index + 1].id}`;
-    next.innerText = "Next →";
+    next.innerText = "Next >";
     navButtons.appendChild(next);
   }
 
